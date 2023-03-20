@@ -1,0 +1,42 @@
+.menu-topo {
+  background-color: var(--cor-primaria);
+  max-width: 100%;
+  width: 100%;
+  border-bottom: 1px solid var(--cor-secundaria);
+  border-top: 1px solid var(--cor-secundaria);
+  box-shadow: 0 1px 0 var(--preto);
+}
+.menu-topo ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+}
+.menu-topo ul li {
+  list-style: none;
+  padding: 6px 16px;
+  color: var(--cor-secundaria);
+}
+.menu-topo ul li:hover {
+  background-color: var(--cor-secundaria);
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 22px -4px var(--sombra-leve);
+  border: 2px solid var(--cor-quarta);
+}
+.logo-renata {
+  max-width: 320px;
+  margin: auto;
+  min-width: 200px;
+}
+.logo-renata img {
+  height: auto;
+  width: 100%;
+}
+.divisor-menu {
+  height: 16px;
+  background-color: var(--cor-secundaria);
+  width: 1px;
+  margin: auto;
+  text-align: center;
+}

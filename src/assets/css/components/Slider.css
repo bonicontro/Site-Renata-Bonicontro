@@ -1,0 +1,79 @@
+.slider {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.slide {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: var(--cor-secundaria);
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide.deactive {
+  opacity: 0;
+}
+.slide.active {
+  opacity: 1;
+}
+.dots {
+  position: absolute;
+  bottom: 18px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  margin-right: 10px;
+  cursor: pointer;
+}
+.main-banner-content {
+  padding: 0 48px;
+}
+
+.dot.active {
+  width: 14px;
+  height: 14px;
+  background-color: var(--cor-quarta);
+  border: solid 3px var(--transparente-leve);
+}
+.bannersNav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 9;
+  align-items: center;
+}
+.bannersNav button {
+  background-color: var(--cor-primaria);
+  border: 0;
+  padding: 4px 8px 6px;
+  height: 32px;
+}
+.bannersNav button:hover {
+  transform: translateY(-4px);
+  font-size: 1.23rem;
+  background-color: var(--cor-terciaria);
+  box-shadow: 0px 6px 10px -2px var(--sombra-leve);
+}
+
+@media screen and (max-width: 500px) {
+  .main-banner-content h1 {
+    font-size: 2.25rem;
+  }
+  .main-banner-content {
+    padding: 0 24px;
+  }
+}
