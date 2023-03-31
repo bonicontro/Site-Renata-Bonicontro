@@ -1,4 +1,3 @@
-import Menu from "../components/Menu";
 import Slider from "../components/Slider";
 import Slide from "../components/Slide";
 import Footer from "../components/Footer";
@@ -7,7 +6,6 @@ import "../assets/css/pages/HomePage.css";
 
 const HomePage: React.FC = () => (
   <>
-    <Menu />
     <Slider
       slides={[
         <Slide
@@ -63,8 +61,8 @@ const HomePage: React.FC = () => (
                 <div className="bloco1">
                   <h1>Jogos de Tarot</h1>
                   <h3>
-                    esoteric products, tarot,
-                    <br /> sessions, courses.
+                    Passado
+                    <br /> presente e futuro.
                   </h3>
                   <p>
                     O Tarot é um conjunto de 78 cartas chamadas de arcanos, que
@@ -95,7 +93,7 @@ const HomePage: React.FC = () => (
         <div className="carta-da-semana">
           <div className="img-fluid">
             <img
-              src="../src/assets/svgs/tarot-sol.svg"
+              src="../src/assets/svgs/tarot-maos.svg"
               className="carta"
               alt=""
             />

@@ -38,8 +38,7 @@
   background-color: var(--cor-quarta);
   margin-left: 10%;
   margin-right: 10%;
-  filter: invert(10%) sepia(42%) saturate(210%) hue-rotate(222deg)
-    brightness(90%) contrast(160%);
+  filter: var(--filtro-objeto);
   margin: 16px auto;
 }
 #cartaSemana {
@@ -47,43 +46,59 @@
 }
 #cartaSemana h1 {
   padding-top: 48px;
+  color: var(--cor-quinta);
 }
 #cartaSemana .carta-da-semana {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 0 24px;
+  color: var(--cor-quinta);
 }
 #cartaSemana .carta-da-semana img {
   max-width: 210px;
   width: 100%;
   margin: 24px;
+  filter: var(--filtro-objeto);
+  opacity: 0.9;
   box-shadow: 4px 24px 24px -16px var(--sombra-leve);
   animation: translado both infinite 6s;
+}
+#cartaSemana .carta-da-semana .texto-carta {
+  max-width: 680px;
+  padding: 0 24px;
 }
 
 @keyframes translado {
   0% {
-    transform: translateX(8px);
+    transform: translateX(4px);
     transform: rotate(-2deg);
-    transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  18% {
+    transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
   }
 
   50% {
-    transform: translateY(-8px);
-    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    transform: rotate(2deg);
+    transform: translateY(-4px);
+
+    transform: rotate(1deg);
   }
   75% {
     transform: translateY(0);
   }
   100% {
-    transform: translateX(8px);
-    transform: rotate(-2deg);
+    transform: translateX(4px);
+    transform: rotate(-1deg);
   }
 }
 
-#cartaSemana .carta-da-semana .texto-carta {
-  max-width: 680px;
-  margin: auto;
+@media (max-width: 768px) {
+  #cartaSemana h1 {
+    font-size: 2.25rem;
+  }
+  #cartaSemana .carta-da-semana img {
+    max-width: 160px;
+  }
 }

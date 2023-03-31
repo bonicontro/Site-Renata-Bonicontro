@@ -9,7 +9,7 @@ interface SliderProps {
   slides: Slide[];
 }
 
-const Slider: React.FC<SliderProps> = ({ slides, interval = 5000 }) => {
+const Slider: React.FC<SliderProps> = ({ slides, interval = 7500 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   useEffect(() => {
     const timer = setInterval(

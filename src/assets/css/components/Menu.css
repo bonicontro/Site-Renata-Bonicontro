@@ -14,15 +14,21 @@
 }
 .menu-topo ul li {
   list-style: none;
-  padding: 6px 16px;
-  color: var(--cor-secundaria);
 }
-.menu-topo ul li:hover {
+.menu-topo ul li a {
+  color: var(--cor-sexta);
+  padding: 6px 15px;
+}
+.menu-topo ul li a:visited {
+  color: var(--cor-sexta);
+}
+.menu-topo ul li:hover a {
   background-color: var(--cor-secundaria);
-  padding: 6px 14px;
+
   border-radius: 8px;
-  box-shadow: 0 4px 22px -4px var(--sombra-leve);
-  border: 2px solid var(--cor-quarta);
+  color: var(--cor-quinta);
+  box-shadow: 0 4px 12px -4px var(--cor-sexta);
+  border-bottom: 1px solid var(--cor-quinta);
 }
 .logo-renata {
   max-width: 320px;
@@ -39,4 +45,9 @@
   width: 1px;
   margin: auto;
   text-align: center;
+}
+
+#tema[data-tema="light"] .logo-renata {
+  filter: invert(40%) sepia(50%) saturate(2000%) hue-rotate(215deg)
+    brightness(65%) contrast(180%);
 }

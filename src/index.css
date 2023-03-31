@@ -19,28 +19,41 @@
   --cinza-escuro: #525252;
 }
 
-#light {
-  --cor-primaria: #d5b8ff;
-  --cor-secundaria: #f2eeff;
+#tema[data-tema="light"] {
+  --cor-primaria: #fbf8ff;
+  --cor-secundaria: #e7e0fd;
   --cor-terciaria: #2f58cd;
-  --cor-quarta: #3795bd;
-
+  --cor-quarta: #fff9f1;
+  --cor-quinta: #8052c9;
+  --cor-sexta: #7259c4;
+  --cor-sete: #232672;
   --background-color: #242424;
   --constraste: #242424;
   --sombra-leve: #ffffff80;
   --transparente-leve: #ffffff40;
+  --filtro-objeto: invert(20%) sepia(22%) saturate(160%) hue-rotate(222deg)
+    brightness(80%) contrast(180%);
+  --opacidade: 1;
 }
-#dark {
+#tema[data-tema="dark"] {
   --cor-primaria: #3a1078;
   --cor-secundaria: #4e31aa;
   --cor-terciaria: #2f58cd;
   --cor-quarta: #3795bd;
   --cor-quinta: #f2eeff;
   --cor-sexta: #c1b2f1;
+  --cor-sete: #30338f;
   --constraste: black;
   --background-color: #242424;
   --transparente-leve: #00000040;
   --sombra-leve: #421483;
+  --filtro-objeto: invert(10%) sepia(42%) saturate(210%) hue-rotate(222deg)
+    brightness(90%) contrast(160%);
+  --opacidade: 0.45;
+}
+
+hr {
+  opacity: 0.2;
 }
 
 a {

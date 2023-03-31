@@ -24,7 +24,8 @@
     "react-router-dom": "^6.8.2",
     "sort-by": "^1.2.0",
     "storybook": "^6.5.16",
-    "styled-components": "^5.3.8"
+    "styled-components": "^5.3.8",
+    "use-local-storage": "^2.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

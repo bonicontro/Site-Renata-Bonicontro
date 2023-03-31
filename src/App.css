@@ -1,4 +1,90 @@
 .container-principal {
   max-width: 1266px;
   margin: auto;
+  padding: 0 16px;
+}
+/* The switch (the checkbox input) */
+.switch {
+  position: relative;
+  display: block;
+  width: 40px;
+  float: right;
+  height: 17px;
+  top: 4px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider (circle) */
+.theme-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--cor-sexta);
+  transition: 0.4s;
+  border-radius: 14px;
+}
+
+.theme-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2.5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .theme-switch-slider {
+  background-color: #2196f3;
+}
+
+input:checked + .theme-switch-slider:before {
+  transform: translateX(20px);
+}
+
+/* The moon and sun icons */
+.fa-moon,
+.fa-sun {
+  color: #f5a623;
+  position: absolute;
+  top: 3px;
+  font-size: 10px;
+  transition: 0.4s;
+}
+
+.fa-moon {
+  left: -10px;
+}
+
+.fa-sun {
+  right: 8px;
+}
+
+input:checked + .theme-switch-slider .fa-moon {
+  transform: translateX(16px);
+  color: #fff;
+}
+
+input:checked + .theme-switch-slider .fa-sun {
+  transform: translateX(-16px);
+  color: #fff;
+}
+
+/* Styling for when the switch is focused or active */
+.switch input:focus + .theme-switch-slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.switch input:active + .theme-switch-slider:before {
+  transform: scale(1.1);
 }
