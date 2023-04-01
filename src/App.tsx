@@ -8,6 +8,8 @@ import Blog from "./pages/Blog";
 import TarotPage from "./pages/TarotPage";
 import ContactPage from "./pages/ContactPage";
 import Menu from "./components/Menu";
+import Post from "./components/Post";
+import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useState(
@@ -21,7 +23,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename="/renata/teste">
       <div className={`App ${theme}`} id="tema" data-tema={theme}>
         <Menu theme={theme} handleThemeChange={handleThemeChange} />
         <Routes>
@@ -30,8 +32,10 @@ function App() {
           <Route path="/tarot" element={<TarotPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contato" element={<ContactPage />} />
+          <Route path="/blog/post/:id" element={<Post />} />
         </Routes>
       </div>
+      <Footer></Footer>
     </Router>
   );
 }

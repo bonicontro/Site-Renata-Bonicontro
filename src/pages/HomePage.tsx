@@ -1,6 +1,8 @@
 import Slider from "../components/Slider";
 import Slide from "../components/Slide";
 import Footer from "../components/Footer";
+import cartaTarotMaos from "../assets/svgs/tarot-maos.svg";
+import cartaTarotSol from "../assets/svgs/tarot-sol.svg";
 
 import "../assets/css/pages/HomePage.css";
 
@@ -45,10 +47,7 @@ const HomePage: React.FC = () => (
                   </ul>
                 </div>
                 <div className="bloco2">
-                  <object
-                    data="../src/assets/svgs/tarot-sol.svg"
-                    type="image/svg+xml"
-                  ></object>
+                  <object data={cartaTarotMaos} type="image/svg+xml"></object>
                 </div>
               </div>
             </div>
@@ -76,10 +75,7 @@ const HomePage: React.FC = () => (
                   <button>Marque uma consulta!</button>
                 </div>
                 <div className="bloco2">
-                  <object
-                    data="../src/assets/svgs/tarot-maos.svg"
-                    type="image/svg+xml"
-                  ></object>
+                  <object data={cartaTarotSol} type="image/svg+xml"></object>
                 </div>
               </div>
             </div>
@@ -91,13 +87,8 @@ const HomePage: React.FC = () => (
       <div className="container-principal">
         <h1>Carta da semana</h1>
         <div className="carta-da-semana">
-          <div className="img-fluid">
-            <img
-              src="../src/assets/svgs/tarot-maos.svg"
-              className="carta"
-              alt=""
-            />
-          </div>
+          <object data={cartaTarotMaos} type="image/svg+xml"></object>
+
           <div className="texto-carta">
             <h2>Nome da carta</h2>
             <p>
@@ -110,7 +101,6 @@ const HomePage: React.FC = () => (
         </div>
       </div>
     </section>
-    <Footer></Footer>
   </>
 );
 

@@ -8,6 +8,22 @@ interface MenuProps {
 }
 
 const Menu = ({ theme, handleThemeChange }: MenuProps) => {
+  // handle the menu-toggle click event
+  const handleMenuToggle = () => {
+    const menuToggle = document.querySelector("#menu-toggle");
+    const menu = document.querySelector(".wrapper-menu");
+    menuToggle?.classList.toggle("active");
+    menu?.classList.toggle("active");
+  };
+
+  // close the menu when a link is clicked
+  const closeMenu = () => {
+    const menuToggle = document.querySelector("#menu-toggle");
+    const menu = document.querySelector(".wrapper-menu");
+    menuToggle?.classList.remove("active");
+    menu?.classList.remove("active");
+  };
+
   return (
     <nav className="menu-topo">
       <div className="container-principal">
@@ -22,31 +38,50 @@ const Menu = ({ theme, handleThemeChange }: MenuProps) => {
             <i className="fas fa-sun sun-icon"></i>
           </span>
         </label>
-        <ul>
+        <div className="wrapper-menu">
           <div className="logo-renata">
             <img src={RenataLogo} alt="Logo Renata Bonicontro" />
           </div>
-          <li>
-            <Link to="/">Inicial</Link>
-          </li>
+          <ul>
+            <li>
+              <Link to="/" onClick={closeMenu}>
+                Inicial
+              </Link>
+            </li>
 
-          <div className="divisor-menu"></div>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-          <div className="divisor-menu"></div>
-          <li>
-            <Link to="/tarot">Tarot</Link>
-          </li>
-          <div className="divisor-menu"></div>
-          <li>
-            <Link to="/sobre">Sobre</Link>
-          </li>
-          <div className="divisor-menu"></div>
-          <li>
-            <Link to="/contato">Contato</Link>
-          </li>
-        </ul>
+            <div className="divisor-menu"></div>
+            <li>
+              <Link to="/blog" onClick={closeMenu}>
+                Blog
+              </Link>
+            </li>
+            <div className="divisor-menu"></div>
+            <li>
+              <Link to="/tarot" onClick={closeMenu}>
+                Tarot
+              </Link>
+            </li>
+            <div className="divisor-menu"></div>
+            <li>
+              <Link to="/sobre" onClick={closeMenu}>
+                Sobre
+              </Link>
+            </li>
+            <div className="divisor-menu"></div>
+            <li>
+              <Link to="/contato" onClick={closeMenu}>
+                Contato
+              </Link>
+            </li>
+          </ul>
+          <div
+            id="menu-toggle"
+            onClick={handleMenuToggle}
+            className="menu-toggler"
+          >
+            <i className="fas fa-bars"></i>
+          </div>
+        </div>
       </div>
     </nav>
   );

@@ -56,7 +56,7 @@
   gap: 0 24px;
   color: var(--cor-quinta);
 }
-#cartaSemana .carta-da-semana img {
+#cartaSemana .carta-da-semana object {
   max-width: 210px;
   width: 100%;
   margin: 24px;

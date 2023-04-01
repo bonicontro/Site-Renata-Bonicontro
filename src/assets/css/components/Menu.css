@@ -6,23 +6,34 @@
   border-top: 1px solid var(--cor-secundaria);
   box-shadow: 0 1px 0 var(--preto);
 }
-.menu-topo ul {
+.wrapper-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  padding: 0.25em;
+  gap: 24px;
+}
+.menu-topo .wrapper-menu ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
   padding: 1em;
 }
-.menu-topo ul li {
+.menu-topo .wrapper-menu ul li {
   list-style: none;
 }
-.menu-topo ul li a {
+.menu-topo .wrapper-menu ul li a {
   color: var(--cor-sexta);
   padding: 6px 15px;
 }
-.menu-topo ul li a:visited {
+.menu-topo .wrapper-menu ul li a:visited {
   color: var(--cor-sexta);
 }
-.menu-topo ul li:hover a {
+.menu-topo .wrapper-menu ul li:hover a {
   background-color: var(--cor-secundaria);
 
   border-radius: 8px;
@@ -50,4 +61,65 @@
 #tema[data-tema="light"] .logo-renata {
   filter: invert(40%) sepia(50%) saturate(2000%) hue-rotate(215deg)
     brightness(65%) contrast(180%);
+}
+#menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  #menu-toggle {
+    display: block;
+    z-index: 999;
+    position: fixed;
+    top: 28px;
+    border-radius: 8px;
+    right: 34px;
+    cursor: pointer;
+    background-color: var(--cor-terciaria);
+    box-shadow: 0 4px 12px -4px var(--cor-sexta);
+    padding: 0.25rem 0.5rem;
+  }
+  .menu-topo .wrapper-menu ul {
+    display: none;
+  }
+  .menu-topo .wrapper-menu.active ul {
+    display: flex;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    border-radius: 12px;
+    background-color: var(--cor-quinta);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 135px;
+    padding: 1rem;
+    z-index: 998;
+  }
+  .menu-topo .wrapper-menu ul li {
+    margin: 0.5em 0;
+  }
+  .menu-topo .wrapper-menu ul li a {
+    padding: 6px 15px;
+    color: var(--cor-primaria);
+  }
+  .menu-topo .wrapper-menu ul li a:visited {
+    color: var(--cor-primaria);
+  }
+  .menu-topo .wrapper-menu ul li:hover a:visited {
+    color: var(--cor-sexta);
+  }
+  .logo-renata {
+    max-width: 320px;
+    margin: auto;
+    min-width: 200px;
+  }
+  .logo-renata img {
+    height: auto;
+    width: 100%;
+  }
+  .divisor-menu {
+    display: none;
+  }
 }
