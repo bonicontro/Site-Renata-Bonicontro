@@ -1,0 +1,29 @@
+.container-principal img {
+  width: 100%;
+  height: auto;
+  max-width: 580px;
+  margin: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 16px;
+}
+.container-principal div p {
+  color: var(--cor-oito);
+}
+.container-principal .conteudo {
+  background-color: var(--cor-secundaria);
+  padding: 24px;
+  max-width: 780px;
+  margin: 12px auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px -6px var(--sombra-leve);
+}
+.container-principal .conteudo div {
+  max-width: 680px;
+  margin: auto;
+}
+
+.has-large-font-size {
+  font-size: 1.5em;
+  color: var(--cor-quinta) !important;
+}

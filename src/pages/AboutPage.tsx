@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../assets/css/pages/AboutPage.css";
 
 interface Post {
   title: {
@@ -25,15 +26,17 @@ const AboutPage = () => {
   }
 
   return (
-    <div className="main">
-      <h1>{post.title.rendered}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-      {post.featured_media && (
-        <img
-          src={`https://bonicontro.com/renata/api/wp-json/wp/v2/media/${post.featured_media}`}
-          alt={post.title.rendered}
-        />
-      )}
+    <div className="main container-principal">
+      <h1 className="titulo-pagina">{post.title.rendered}</h1>
+      <div className="conteudo">
+        <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        {/* {post.featured_media && (
+          <img
+            src={`https://bonicontro.com/renata/api/wp-json/wp/v2/media/${post.featured_media}`}
+            alt={post.title.rendered}
+          />
+        )} */}
+      </div>
     </div>
   );
 };

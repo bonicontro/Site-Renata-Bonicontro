@@ -1,7 +1,7 @@
-import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
-// pages
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import Blog from "./pages/Blog";
@@ -10,6 +10,7 @@ import ContactPage from "./pages/ContactPage";
 import Menu from "./components/Menu";
 import Post from "./components/Post";
 import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
   const [theme, setTheme] = useState(
@@ -24,18 +25,22 @@ function App() {
 
   return (
     <Router basename="/renata/teste">
-      <div className={`App ${theme}`} id="tema" data-tema={theme}>
-        <Menu theme={theme} handleThemeChange={handleThemeChange} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/sobre" element={<AboutPage />} />
-          <Route path="/tarot" element={<TarotPage />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contato" element={<ContactPage />} />
-          <Route path="/blog/post/:id" element={<Post />} />
-        </Routes>
-      </div>
-      <Footer></Footer>
+      <CSSTransition classNames="fade" timeout={3000}>
+        <div className={`App ${theme}`} id="tema" data-tema={theme}>
+          <Menu theme={theme} handleThemeChange={handleThemeChange} />
+          <div className="content fade">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/sobre" element={<AboutPage />} />
+              <Route path="/tarot" element={<TarotPage />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contato" element={<ContactPage />} />
+              <Route path="/blog/post/:id" element={<Post />} />
+            </Routes>
+            <Footer />
+          </div>
+        </div>
+      </CSSTransition>
     </Router>
   );
 }

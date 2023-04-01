@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../assets/css/pages/BlogPage.css";
 
 interface Post {
   _embedded: any;
@@ -68,29 +69,31 @@ const Blog = () => {
   };
 
   return (
-    <div className="main">
-      <h1>Últimos Posts</h1>
-      {posts.map((post) => (
-        <div key={post.id} className="post-preview">
-          <div className="post-preview-image">
-            {post.featured_media && (
-              <img
-                src={`${post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`}
-                alt={post.title.rendered}
-              />
-            )}
-          </div>
-          <div className="post-preview-content">
-            <h2>{post.title.rendered}</h2>
-            <div
-              dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-            ></div>
+    <div className="main container-principal">
+      <h1 className="titulo-pagina">Últimos Posts</h1>
+      <div className="posts-wrapper">
+        {posts.map((post) => (
+          <div key={post.id} className="post-preview">
+            <div className="post-preview-image">
+              {post.featured_media && (
+                <img
+                  src={`${post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`}
+                  alt={post.title.rendered}
+                />
+              )}
+            </div>
+            <div className="post-preview-content">
+              <h2>{post.title.rendered}</h2>
+              <div
+                dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+              ></div>
+            </div>
             <Link to={`/blog/post/${post.id}`} className="btn-read-more">
               Leia mais
             </Link>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
       {totalPages > 1 && (
         <div className="pagination">
           <button onClick={handleFirstPage} disabled={currentPage === 1}>
