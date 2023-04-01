@@ -3,88 +3,73 @@
   margin: auto;
   padding: 0 16px;
 }
-/* The switch (the checkbox input) */
-.switch {
+
+.theme-switch {
   position: relative;
   display: block;
-  width: 40px;
   float: right;
-  height: 17px;
-  top: 4px;
+  top: 6px;
+  width: 30px;
+  height: 14px;
 }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.theme-switch input[type="checkbox"] {
+  display: none;
 }
 
-/* The slider (circle) */
-.theme-switch-slider {
+.theme-switch .slider-theme-switch {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  border-radius: 20px;
   background-color: var(--cor-sexta);
-  transition: 0.4s;
-  border-radius: 14px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.theme-switch-slider:before {
+.theme-switch .slider-theme-switch:before {
   position: absolute;
   content: "";
-  height: 13px;
-  width: 13px;
-  left: 2px;
-  bottom: 2.5px;
-  background-color: white;
-  transition: 0.4s;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
+  background-color: #fff;
+  top: 1px;
+  left: 2px;
+  transition: transform 0.3s ease-in-out;
 }
 
-input:checked + .theme-switch-slider {
+.theme-switch .slider-theme-switch .moon-icon,
+.theme-switch .slider-theme-switch .sun-icon {
+  position: absolute;
+  top: -1px;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 12pt;
+}
+
+.theme-switch .slider-theme-switch .moon-icon {
+  left: 14px;
+}
+
+.theme-switch .slider-theme-switch .sun-icon {
+  right: 14px;
+  opacity: 0;
+  color: #ffe48a;
+}
+
+.theme-switch input[type="checkbox"]:checked + .slider-theme-switch {
   background-color: #2196f3;
 }
 
-input:checked + .theme-switch-slider:before {
-  transform: translateX(20px);
+.theme-switch input[type="checkbox"]:checked + .slider-theme-switch:before {
+  transform: translateX(15px);
 }
 
-/* The moon and sun icons */
-.fa-moon,
-.fa-sun {
-  color: #f5a623;
-  position: absolute;
-  top: 3px;
-  font-size: 10px;
-  transition: 0.4s;
+.theme-switch input[type="checkbox"]:checked + .slider-theme-switch .moon-icon {
+  opacity: 0;
 }
 
-.fa-moon {
-  left: -10px;
-}
-
-.fa-sun {
-  right: 8px;
-}
-
-input:checked + .theme-switch-slider .fa-moon {
-  transform: translateX(16px);
-  color: #fff;
-}
-
-input:checked + .theme-switch-slider .fa-sun {
-  transform: translateX(-16px);
-  color: #fff;
-}
-
-/* Styling for when the switch is focused or active */
-.switch input:focus + .theme-switch-slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-.switch input:active + .theme-switch-slider:before {
-  transform: scale(1.1);
+.theme-switch input[type="checkbox"]:checked + .slider-theme-switch .sun-icon {
+  opacity: 1;
 }

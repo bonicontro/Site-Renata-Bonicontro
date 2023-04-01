@@ -4,29 +4,22 @@ import { Link } from "react-router-dom";
 
 interface MenuProps {
   theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
+  handleThemeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Menu = ({ theme, setTheme }: MenuProps) => {
-  const handleThemeToggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+const Menu = ({ theme, handleThemeChange }: MenuProps) => {
   return (
     <nav className="menu-topo">
       <div className="container-principal">
-        <label htmlFor="theme-switch" className="switch">
+        <label className="theme-switch">
           <input
             type="checkbox"
-            id="theme-switch"
-            checked={theme === "dark"}
-            onChange={handleThemeToggle}
+            checked={theme === "light"}
+            onChange={handleThemeChange}
           />
-          <span className="theme-switch-slider round">
-            {theme === "dark" ? (
-              <i className="fas fa-moon"></i>
-            ) : (
-              <i className="fas fa-sun"></i>
-            )}
+          <span className="slider-theme-switch">
+            <i className="fas fa-moon moon-icon"></i>
+            <i className="fas fa-sun sun-icon"></i>
           </span>
         </label>
         <ul>
@@ -58,4 +51,5 @@ const Menu = ({ theme, setTheme }: MenuProps) => {
     </nav>
   );
 };
+
 export default Menu;
