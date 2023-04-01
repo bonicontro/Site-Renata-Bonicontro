@@ -19,19 +19,53 @@ interface Post {
   };
 }
 
+interface CustomResponse extends Response {
+  headers: any;
+}
+
 const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   useEffect(() => {
+    const perPage = 9;
     fetch(
-      "https://bonicontro.com/renata/api/wp-json/wp/v2/posts?per_page=9&_embed"
+      `https://bonicontro.com/renata/api/wp-json/wp/v2/posts?per_page=${perPage}&page=${currentPage}&_embed`
     )
-      .then((response) => response.json())
+      .then((response: CustomResponse) => {
+        setTotalPages(parseInt(response.headers.get("X-WP-TotalPages")));
+        return response.json();
+      })
       .then((data) => {
         setPosts(data);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [currentPage]);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handleFirstPage = () => {
+    setCurrentPage(1);
+  };
+
+  const handleLastPage = () => {
+    setCurrentPage(totalPages);
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <div className="main">
@@ -57,6 +91,39 @@ const Blog = () => {
           </div>
         </div>
       ))}
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button onClick={handleFirstPage} disabled={currentPage === 1}>
+            {"<<"}
+          </button>
+          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+            {"<"}
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+            (pageNumber) => (
+              <button
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+                className={pageNumber === currentPage ? "active" : ""}
+              >
+                {pageNumber}
+              </button>
+            )
+          )}
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            {">"}
+          </button>
+          <button
+            onClick={handleLastPage}
+            disabled={currentPage === totalPages}
+          >
+            {">>"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
