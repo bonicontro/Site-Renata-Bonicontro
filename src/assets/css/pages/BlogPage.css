@@ -1,9 +1,9 @@
 .content .main {
   min-height: 100vh;
-  padding: 48px 24px;
+  padding: 32px 16px;
 }
 .container-principal h1.titulo-pagina {
-  font-size: 3.2em;
+  font-size: 2.75em;
   line-height: 3.5rem;
   margin: 24px auto 32px;
 
@@ -28,6 +28,7 @@
   border-radius: 18px;
   box-shadow: 0 4px 8px 0 var(--sombra-leve);
   background-color: var(--cor-quarta);
+  box-shadow: 0 4px 8px -2px var(--sombra-leve);
   color: var(--cor-quinta);
   align-self: stretch;
   padding: 16px;
@@ -42,14 +43,15 @@
   margin-bottom: 16px;
 }
 .container-principal .posts-wrapper .post-preview .post-preview-content div p {
-  color: var(--cor-oito);
+  color: var(--contraste);
 }
 
 .container-principal .posts-wrapper .post-preview .btn-read-more {
   margin: auto;
   margin-bottom: 0;
   align-self: flex-end;
-  background-color: var(--cor-quinta);
+  background-color: var(--contraste);
+
   color: var(--cor-primaria);
   border: none;
   border-radius: 8px;
@@ -70,4 +72,23 @@
   max-height: 184px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.pagination button {
+  margin: 6px;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: var(--cor-sete);
+  color: var(--cor-segunda);
+}
+.pagination button:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-quinta);
+}
+
+.pagination button:disabled {
+  background-color: var(--cor-oito);
+  color: var(--cor-segunda);
+  cursor: not-allowed;
 }

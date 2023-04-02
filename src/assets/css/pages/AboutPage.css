@@ -7,8 +7,8 @@
   display: block;
   margin-bottom: 16px;
 }
-.container-principal div p {
-  color: var(--cor-oito);
+.container-principal .conteudo div p {
+  color: var(--contraste);
 }
 .container-principal .conteudo {
   background-color: var(--cor-secundaria);

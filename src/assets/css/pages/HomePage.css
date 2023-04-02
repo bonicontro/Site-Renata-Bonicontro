@@ -54,6 +54,7 @@
   justify-content: center;
   align-items: center;
   gap: 0 24px;
+  padding-bottom: 48px;
   color: var(--cor-quinta);
 }
 #cartaSemana .carta-da-semana object {
@@ -68,6 +69,97 @@
 #cartaSemana .carta-da-semana .texto-carta {
   max-width: 680px;
   padding: 0 24px;
+}
+#latest-blog {
+  background-image: url("../src/assets/imgs/bg-2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--cor-secundaria);
+}
+#latest-blog .container-principal {
+  padding: 48px 16px;
+}
+#latest-blog .container-principal h1 {
+  color: var(--cor-quinta);
+  margin-bottom: 24px;
+}
+#latest-blog .container-principal .posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  color: var(--cor-quinta);
+}
+#latest-blog .container-principal .post {
+  background-color: var(--cor-quarta);
+  box-shadow: 4px 24px 24px -16px var(--sombra-leve);
+  border-radius: 8px;
+  padding: 24px;
+  font-size: 0.92rem;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#latest-blog .container-principal .post h3 {
+  margin: auto;
+}
+
+#latest-blog .container-principal .thumb-noticia img {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: fill;
+  border-radius: 8px;
+  width: auto;
+}
+#latest-blog .container-principal .post a {
+  color: var(--cor-primaria);
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: var(--cor-sete);
+}
+#tema[data-tema="dark"] #latest-blog .container-principal .post a {
+  background-color: var(--cor-quinta);
+  color: var(--cor-primaria);
+}
+#tema[data-tema="dark"] #latest-blog .container-principal .post a:hover {
+  background-color: var(--cor-sexta);
+  color: var(--cor-primaria);
+}
+#latest-blog .container-principal .post p {
+  text-align: center;
+  color: var(--contraste);
+}
+
+#latest-blog .container-principal .post a:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-quinta);
+}
+#latest-blog .container-principal .btn-ver-todos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
+  background-color: var(--cor-quinta);
+  color: var(--cor-secundaria);
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 6px var(--sombra-leve);
+}
+#latest-blog .container-principal .btn-ver-todos:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-quinta);
+}
+
+@media screen and (max-width: 768px) {
+  #latest-blog .container-principal .post {
+    max-width: 100%;
+  }
 }
 
 @keyframes translado {

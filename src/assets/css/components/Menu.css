@@ -44,11 +44,14 @@
 .logo-renata {
   max-width: 320px;
   margin: auto;
-  min-width: 200px;
+  margin: 16px auto;
+  width: min-content;
+  min-width: 210px;
 }
 .logo-renata img {
   height: auto;
   width: 100%;
+  margin: auto;
 }
 .divisor-menu {
   height: 16px;
@@ -112,7 +115,7 @@
   }
   .logo-renata {
     max-width: 320px;
-    margin: auto;
+    margin: auto auto 16px;
     min-width: 200px;
   }
   .logo-renata img {

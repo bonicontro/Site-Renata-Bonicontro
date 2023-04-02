@@ -1,6 +1,7 @@
-import "../assets/css/components/Menu.css";
-import RenataLogo from "../assets/imgs/renata-logo.png";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import RenataLogo from "../assets/imgs/renata-logo.png";
+import "../assets/css/components/Menu.css";
 
 interface MenuProps {
   theme: string;
@@ -8,20 +9,32 @@ interface MenuProps {
 }
 
 const Menu = ({ theme, handleThemeChange }: MenuProps) => {
-  // handle the menu-toggle click event
-  const handleMenuToggle = () => {
-    const menuToggle = document.querySelector("#menu-toggle");
-    const menu = document.querySelector(".wrapper-menu");
-    menuToggle?.classList.toggle("active");
-    menu?.classList.toggle("active");
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // close the menu when a link is clicked
   const closeMenu = () => {
-    const menuToggle = document.querySelector("#menu-toggle");
-    const menu = document.querySelector(".wrapper-menu");
-    menuToggle?.classList.remove("active");
-    menu?.classList.remove("active");
+    setMenuOpen(false);
+  };
+
+  // close the menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutsideMenu = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutsideMenu);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutsideMenu);
+    };
+  }, []);
+
+  // handle the menu-toggle click event
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -38,9 +51,14 @@ const Menu = ({ theme, handleThemeChange }: MenuProps) => {
             <i className="fas fa-sun sun-icon"></i>
           </span>
         </label>
-        <div className="wrapper-menu">
+        <div
+          className={`wrapper-menu ${menuOpen ? "active" : ""}`}
+          ref={menuRef}
+        >
           <div className="logo-renata">
-            <img src={RenataLogo} alt="Logo Renata Bonicontro" />
+            <Link to="/" onClick={closeMenu}>
+              <img src={RenataLogo} alt="Logo Renata Bonicontro" />
+            </Link>
           </div>
           <ul>
             <li>
