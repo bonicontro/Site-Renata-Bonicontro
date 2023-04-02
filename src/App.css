@@ -38,11 +38,12 @@
   padding: 0 16px;
 }
 .content {
-  background-image: url("./src/assets/imgs/bg-2.png");
+  background-image: url("../src/assets/imgs/bg-2.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--background-color);
+  min-height: 100dvh;
 }
 
 .theme-switch {
@@ -67,6 +68,28 @@
   border-radius: 20px;
   background-color: var(--cor-sexta);
   transition: background-color 0.3s ease-in-out;
+}
+
+.isLoading {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .theme-switch .slider-theme-switch:before {

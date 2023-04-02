@@ -28,9 +28,12 @@ const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // New state variable
 
   useEffect(() => {
     const perPage = 9;
+    setIsLoading(true); // Set loading state to true before fetch
+
     fetch(
       `https://bonicontro.com/renata/api/wp-json/wp/v2/posts?per_page=${perPage}&page=${currentPage}&_embed`
     )
@@ -40,94 +43,50 @@ const Blog = () => {
       })
       .then((data) => {
         setPosts(data);
+        setIsLoading(false); // Set loading state to false after fetch
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false); // Set loading state to false if fetch errors out
+      });
   }, [currentPage]);
 
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleFirstPage = () => {
-    setCurrentPage(1);
-  };
-
-  const handleLastPage = () => {
-    setCurrentPage(totalPages);
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
+  // ...rest of your code
 
   return (
     <div className="main container-principal">
       <h1 className="titulo-pagina">Últimos Posts</h1>
+
+      {/* Render loading indicator when isLoading is true */}
+      {isLoading && <div className="isLoading"></div>}
+
       <div className="posts-wrapper">
-        {posts.map((post) => (
-          <div key={post.id} className="post-preview">
-            <div className="post-preview-image">
-              {post.featured_media && (
-                <img
-                  src={`${post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`}
-                  alt={post.title.rendered}
-                />
-              )}
+        {/* Render posts when isLoading is false */}
+        {!isLoading &&
+          posts.map((post) => (
+            <div key={post.id} className="post-preview">
+              <div className="post-preview-image">
+                {post.featured_media && (
+                  <img
+                    src={`${post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`}
+                    alt={post.title.rendered}
+                  />
+                )}
+              </div>
+              <div className="post-preview-content">
+                <h2>{post.title.rendered}</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                ></div>
+              </div>
+              <Link to={`/blog/post/${post.id}`} className="btn-read-more">
+                Leia mais
+              </Link>
             </div>
-            <div className="post-preview-content">
-              <h2>{post.title.rendered}</h2>
-              <div
-                dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-              ></div>
-            </div>
-            <Link to={`/blog/post/${post.id}`} className="btn-read-more">
-              Leia mais
-            </Link>
-          </div>
-        ))}
+          ))}
       </div>
-      {totalPages > 1 && (
-        <div className="pagination">
-          <button onClick={handleFirstPage} disabled={currentPage === 1}>
-            {"<<"}
-          </button>
-          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-            {"<"}
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-            (pageNumber) => (
-              <button
-                key={pageNumber}
-                onClick={() => handlePageChange(pageNumber)}
-                className={pageNumber === currentPage ? "active" : ""}
-              >
-                {pageNumber}
-              </button>
-            )
-          )}
-          <button
-            onClick={handleNextPage}
-            disabled={currentPage === totalPages}
-          >
-            {">"}
-          </button>
-          <button
-            onClick={handleLastPage}
-            disabled={currentPage === totalPages}
-          >
-            {">>"}
-          </button>
-        </div>
-      )}
+
+      {/* ...rest of your code */}
     </div>
   );
 };

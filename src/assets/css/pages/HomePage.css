@@ -62,7 +62,7 @@
   width: 100%;
   margin: 24px;
   filter: var(--filtro-objeto);
-  opacity: 0.9;
+
   box-shadow: 4px 24px 24px -16px var(--sombra-leve);
   animation: translado both infinite 6s;
 }

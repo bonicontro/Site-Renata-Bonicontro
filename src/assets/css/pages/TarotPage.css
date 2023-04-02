@@ -1,0 +1,7 @@
+.conteudo.tarot-page ul,
+.conteudo.tarot-page ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--cor-quinta);
+}

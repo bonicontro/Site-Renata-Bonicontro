@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {
+  faFacebookSquare,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faBrain } from "@fortawesome/free-solid-svg-icons";
+
+import "../assets/css/pages/ContactPage.css";
 
 interface Page {
   title: {
@@ -8,8 +17,11 @@ interface Page {
   acf: {
     telefone: string;
     email_de_contato: string;
-    facebook: string;
-    twitter: string;
+    facebook_tarot: string;
+    instagram: string;
+    tiktok: string;
+    instagram_psicologa: string;
+    facebook_pessoal: string;
   };
 }
 
@@ -45,72 +57,100 @@ const ContactPage = () => {
   };
 
   if (!page) {
-    return <div>Loading...</div>;
+    return <div className="isLoading"></div>;
   }
 
   return (
-    <div className="main">
+    <div className="main container-principal">
       <h1>{page.title.rendered}</h1>
-      <div className="contact-info">
-        <div className="phone">
-          <p>Telefone: {page.acf.telefone}</p>
+      <div className="informacoes-de-contato">
+        <div className="contact-info">
+          <div className="phone">
+            <p>Telefone: {page.acf.telefone}</p>
+          </div>
+          <div className="email">
+            <p>Email: {page.acf.email_de_contato}</p>
+          </div>
         </div>
-        <div className="email">
-          <p>Email: {page.acf.email_de_contato}</p>
+        <div className="contact-form">
+          <h2>Envie uma mensagem</h2>
+          {formStatus === "Success" ? (
+            <div className="success-message">
+              Obrigada! retornarei o assim que possível.
+            </div>
+          ) : formStatus === "Error" ? (
+            <div className="error-message">
+              Oops! algo deu errado, por favor, tente novamente mais tarde!.
+            </div>
+          ) : null}
+          <form onSubmit={handleFormSubmit}>
+            <label>
+              Nome
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleFormChange}
+              />
+            </label>
+            <label>
+              Email
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleFormChange}
+              />
+            </label>
+            <label>
+              Menssagem
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleFormChange}
+              />
+            </label>
+            <button type="submit">Enviar mensagem</button>
+          </form>
         </div>
         <div className="social-media">
+          <h3>Imagens do inconsciente</h3>
+          <FontAwesomeIcon icon={faMoon} />
           <a
-            href={page.acf.facebook}
+            href={page.acf.facebook_tarot}
             target="_blank"
             rel="noopener noreferrer"
-          ></a>
+          >
+            <FontAwesomeIcon icon={faFacebookSquare} />
+          </a>
           <a
-            href={page.acf.twitter}
+            href={page.acf.instagram}
             target="_blank"
             rel="noopener noreferrer"
-          ></a>
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a href={page.acf.tiktok} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faTiktok} />
+          </a>
+
+          <h3>Psicologia</h3>
+          <FontAwesomeIcon icon={faBrain} />
+          <a
+            href={page.acf.instagram_psicologa}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a
+            href={page.acf.facebook_pessoal}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faFacebookSquare} />
+          </a>
         </div>
-      </div>
-      <div className="contact-form">
-        <h2>Envie uma mensagem</h2>
-        {formStatus === "Success" ? (
-          <div className="success-message">
-            Obrigada! retornarei o assim que possível.
-          </div>
-        ) : formStatus === "Error" ? (
-          <div className="error-message">
-            Oops! algo deu errado, por favor, tente novamente mais tarde!.
-          </div>
-        ) : null}
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            Nome
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleFormChange}
-            />
-          </label>
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleFormChange}
-            />
-          </label>
-          <label>
-            Menssagem
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleFormChange}
-            />
-          </label>
-          <button type="submit">Enviar mensagem</button>
-        </form>
       </div>
     </div>
   );

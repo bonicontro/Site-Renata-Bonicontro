@@ -69,7 +69,7 @@
   display: none;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 649px) {
   #menu-toggle {
     display: block;
     z-index: 999;

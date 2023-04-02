@@ -22,7 +22,7 @@ const AboutPage = () => {
   }, []);
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <div className="isLoading"></div>;
   }
 
   return (

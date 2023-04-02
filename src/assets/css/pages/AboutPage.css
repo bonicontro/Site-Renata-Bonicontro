@@ -21,6 +21,7 @@
 .container-principal .conteudo div {
   max-width: 680px;
   margin: auto;
+  text-align: left;
 }
 
 .has-large-font-size {
