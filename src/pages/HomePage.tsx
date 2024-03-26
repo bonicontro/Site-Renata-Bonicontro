@@ -40,7 +40,7 @@ interface Slide {
 const HomePage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [carta, setCarta] = useState<Carta | null>(null);
-  const [slides, setSlides] = useState([]);
+  const [slides, setSlides] = useState<any[]>([]);
 
   useEffect(() => {
     fetch("https://bonicontro.com/renata/api/wp-json/wp/v2/slides")
@@ -100,7 +100,8 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <>
+      {/* if slides */}
+      {slides.length > 0 && (
         <Slider
           slides={slides.map((slide, index) => (
             <Slide
@@ -134,7 +135,14 @@ const HomePage: React.FC = () => {
             />
           ))}
         />
-      </>
+      )}
+      {/* if no slides yet */}
+      {!slides.length && (
+        <div className="container-principal" style={{ height: "40vh" }}>
+          <div className="isLoading"></div>
+        </div>
+      )}
+
       <section id="cartaSemana">
         <div className="container-principal">
           {carta ? (

@@ -180,6 +180,9 @@ footer#footer {
   flex: 1;
   max-width: 680px;
 }
+.main-slide-content{
+  color: var(--cor-quinta);
+}
 
 .bloco img{
   max-width: 280px;
@@ -202,15 +205,12 @@ footer#footer {
   text-align: left;
 }
 .has-text-align-center{
-  text-align: center !important;
+  text-align: center ;
 }
 
 @media screen and (max-width: 768px) {
  
-  .main-slide-content .bloco  img {
-    max-width: 120px;
-    
-  }.main-slide-content{
+ .main-slide-content{
     gap: 16px;
   }
   
@@ -220,7 +220,7 @@ footer#footer {
     font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   }
   .main-slide-content .bloco img {
-    max-width: 120px;
+    max-width: 200px;
   }
   .slider{
     height: 100vh;
