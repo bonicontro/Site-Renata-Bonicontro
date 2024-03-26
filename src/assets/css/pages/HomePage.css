@@ -43,6 +43,7 @@
 }
 #cartaSemana {
   background-color: var(--cor-quarta);
+  min-height: 400px;
 }
 #cartaSemana h1 {
   padding-top: 48px;
@@ -54,14 +55,14 @@
   justify-content: center;
   align-items: center;
   gap: 0 24px;
+
   padding-bottom: 48px;
   color: var(--cor-quinta);
 }
-#cartaSemana .carta-da-semana object {
+#cartaSemana .carta-da-semana #cartaDaSemana {
   max-width: 210px;
   width: 100%;
   margin: 24px;
-  filter: var(--filtro-objeto);
 
   box-shadow: 4px 24px 24px -16px var(--sombra-leve);
   animation: translado both infinite 6s;
@@ -70,12 +71,16 @@
   max-width: 680px;
   padding: 0 24px;
 }
+#cartaSemana .carta-da-semana .texto-carta img {
+  animation: translado both infinite 6s;
+  max-width: 200px;
+}
 #latest-blog {
-  background-image: url("../src/assets/imgs/bg-2.png");
+  background-image: url("../../imgs/bg-2.png");
+  background-color: var(--background-color);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--cor-secundaria);
 }
 #latest-blog .container-principal {
   padding: 48px 16px;
