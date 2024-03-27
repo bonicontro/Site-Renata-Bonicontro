@@ -4,6 +4,7 @@ import {
   faFacebookSquare,
   faInstagram,
   faTiktok,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faBrain } from "@fortawesome/free-solid-svg-icons";
@@ -66,10 +67,34 @@ const ContactPage = () => {
       <div className="informacoes-de-contato">
         <div className="contact-info">
           <div className="phone">
-            <p>Telefone: {page.acf.telefone}</p>
+            <p>
+              Telefone:{" "}
+              <a
+                href="#"
+                id="contatoRodape"
+                className="contato-whatsapp"
+                onClick={() =>
+                  window.open(
+                    `https://api.whatsapp.com/send?phone=+55${page?.acf.telefone.replace(
+                      /\D/g,
+                      ""
+                    )}&text=Olá!, Gostaria de saber sobre`,
+                    "_blank"
+                  )
+                }
+              >
+                {" "}
+                <FontAwesomeIcon icon={faWhatsapp} /> {page.acf.telefone}
+              </a>
+            </p>
           </div>
           <div className="email">
-            <p>Email: {page.acf.email_de_contato}</p>
+            <p>
+              Email:{" "}
+              <a href={`mailto:${page.acf.email_de_contato}`}>
+                {page.acf.email_de_contato}
+              </a>
+            </p>
           </div>
         </div>
         <div className="contact-form">

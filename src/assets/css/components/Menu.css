@@ -76,7 +76,7 @@
     position: fixed;
     top: 28px;
     border-radius: 8px;
-    right: 34px;
+    right: 18px;
     cursor: pointer;
     background-color: var(--cor-terciaria);
     box-shadow: 0 4px 12px -4px var(--cor-sexta);
@@ -124,5 +124,14 @@
   }
   .divisor-menu {
     display: none;
+  }
+}
+@media screen and (max-width: 340px) {
+  #menu-toggle {
+    top: 72px;
+  }
+  .wrapper-menu {
+    padding: 0;
+    gap: 0;
   }
 }

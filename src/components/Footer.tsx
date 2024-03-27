@@ -5,8 +5,10 @@ import {
   faFacebookSquare,
   faInstagram,
   faTiktok,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import "../assets/css/components/Footer.css";
+import { faW } from "@fortawesome/free-solid-svg-icons";
 
 interface Page {
   title: {
@@ -37,16 +39,57 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer>
+    <footer id="footer">
+      <a
+        href="#"
+        id="contatoWhatsappFlutuante"
+        className="contato-whatsapp"
+        onClick={() =>
+          window.open(
+            `https://api.whatsapp.com/send?phone=+55${page?.acf.telefone.replace(
+              /\D/g,
+              ""
+            )}&text=Olá!, Gostaria de saber sobre`,
+            "_blank"
+          )
+        }
+      >
+        <FontAwesomeIcon icon={faWhatsapp} /> <span>saiba mais</span>
+      </a>
+
       {page && (
         <>
           <div className="informacoes-de-contato">
             <div className="contact-info">
               <div className="phone">
-                <p>Telefone: {page.acf.telefone}</p>
+                <p>
+                  Telefone:{" "}
+                  <a
+                    href="#"
+                    id="contatoRodape"
+                    className="contato-whatsapp"
+                    onClick={() =>
+                      window.open(
+                        `https://api.whatsapp.com/send?phone=+55${page?.acf.telefone.replace(
+                          /\D/g,
+                          ""
+                        )}&text=Olá!, Gostaria de saber sobre`,
+                        "_blank"
+                      )
+                    }
+                  >
+                    {" "}
+                    <FontAwesomeIcon icon={faWhatsapp} /> {page.acf.telefone}
+                  </a>
+                </p>
               </div>
               <div className="email">
-                <p>Email: {page.acf.email_de_contato}</p>
+                <p>
+                  Email:{" "}
+                  <a href={`mailto:${page.acf.email_de_contato}`}>
+                    {page.acf.email_de_contato}
+                  </a>
+                </p>
               </div>
             </div>
 
@@ -75,7 +118,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
               </div>
-
+              <span id="divisorFooter"></span>
               <div className="psicologa">
                 <h3>Psicologia</h3>
                 <a

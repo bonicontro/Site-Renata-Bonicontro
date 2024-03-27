@@ -5,7 +5,6 @@
   margin: auto;
   border-radius: 8px;
   display: block;
-  margin-bottom: 16px;
 }
 .container-principal .conteudo div p {
   color: var(--contraste);

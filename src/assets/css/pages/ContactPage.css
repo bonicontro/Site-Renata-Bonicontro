@@ -1,0 +1,6 @@
+.contact-info a {
+  color: white;
+}
+.contact-info a:hover {
+  color: var(--cor-terciaria);
+}

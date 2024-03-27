@@ -64,7 +64,7 @@
   width: 100%;
   margin: 24px;
 
-  box-shadow: 4px 24px 24px -16px var(--sombra-leve);
+  box-shadow: 0px 24px 24px -16px var(--sombra-carta);
   animation: translado both infinite 6s;
 }
 #cartaSemana .carta-da-semana .texto-carta {
@@ -75,10 +75,9 @@
   animation: translado both infinite 6s;
   max-width: 200px;
 }
+
 #latest-blog {
-  background-image: url("../../imgs/bg-2.png");
-  background-color: var(--background-color);
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -160,10 +159,114 @@
   background-color: var(--cor-primaria);
   color: var(--cor-quinta);
 }
+.main-slide-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+  padding: 16px;
+  align-items: center;
+}
+
+.bloco {
+  flex: 1;
+  max-width: 680px;
+}
+
+.main-slide-content {
+  color: var(--cor-quinta);
+}
+
+.bloco img {
+  max-width: 280px;
+  max-height: 420px;
+  height: auto;
+  width: 100%;
+}
+
+.main-slide-content .bloco h1 {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.bloco.img-fluid {
+  max-width: 280px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+#root .slider {
+  text-align: left;
+}
+#root .slider .slide {
+  background-image: linear-gradient(
+    -135deg,
+    var(--cor-secundaria) 25%,
+    var(--cor-primaria) 25%,
+    var(--cor-primaria) 50%,
+    var(--cor-secundaria) 50%,
+    var(--cor-secundaria) 75%,
+    var(--cor-primaria) 75%,
+    var(--cor-primaria) 100%,
+    var(--cor-secundaria) 100%
+  );
+  background-size: 3px 3px;
+}
+#root .slider .slide .slide {
+  max-width: 90vw;
+}
+#root .carta-da-semana {
+  background-image: url("../../imgs/bg-2.png");
+}
+
+.has-text-align-center {
+  text-align: center;
+}
 
 @media screen and (max-width: 768px) {
+  .main-slide-content {
+    gap: 16px;
+  }
   #latest-blog .container-principal .post {
     max-width: 100%;
+  }
+  #cartaSemana .carta-da-semana #cartaDaSemana {
+    margin-bottom: 16px;
+  }
+  #cartaSemana .carta-da-semana .texto-carta {
+    padding: 0 10px;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+  }
+  #cartaSemana h1 {
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-slide-content .bloco h1 {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+
+  .main-slide-content .bloco img {
+    max-width: 200px;
+  }
+
+  .slider {
+    height: 100vh;
+  }
+
+  .main-slide-content {
+    gap: 16px;
+    flex-direction: column-reverse;
+  }
+  #cartaSemana h1 {
+    font-size: 2.25rem;
+  }
+
+  #cartaSemana .carta-da-semana img {
+    max-width: 160px;
   }
 }
 
@@ -188,14 +291,5 @@
   100% {
     transform: translateX(4px);
     transform: rotate(-1deg);
-  }
-}
-
-@media (max-width: 768px) {
-  #cartaSemana h1 {
-    font-size: 2.25rem;
-  }
-  #cartaSemana .carta-da-semana img {
-    max-width: 160px;
   }
 }
