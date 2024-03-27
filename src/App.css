@@ -58,11 +58,9 @@
   width: 30px;
   height: 14px;
 }
-
 .theme-switch input[type="checkbox"] {
   display: none;
 }
-
 .theme-switch .slider-theme-switch {
   position: absolute;
   top: 0;

@@ -98,4 +98,7 @@ footer#footer #contatoWhatsappFlutuante:hover span {
   footer#footer .social-media #divisorFooter::before {
     display: none;
   }
+  footer#footer .social-media #divisorFooter {
+    display: none;
+  }
 }
