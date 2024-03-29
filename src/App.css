@@ -1,12 +1,14 @@
 #tema[data-tema="light"] {
   --cor-primaria: #fbf8ff;
   --cor-secundaria: #e7e0fd;
+  --cor-contraste-secundaria: #dbd0ff;
   --cor-terciaria: #2f58cd;
   --cor-quarta: #fff9f1;
   --cor-quinta: #8052c9;
   --cor-sexta: #7259c4;
   --cor-sete: #232672;
   --cor-oito: #8b6f9b;
+  --cor-link: #2f58cd;
   --background-color: #ececec;
   --contraste: #0f0f0f;
   --sombra-leve: #dadada80;
@@ -20,6 +22,7 @@
 #tema[data-tema="dark"] {
   --cor-primaria: #3a1078;
   --cor-secundaria: #4e31aa;
+  --cor-contraste-secundaria: #5b3eb9;
   --cor-terciaria: #2f58cd;
   --cor-quarta: #392681;
   --cor-quinta: #f2eeff;
@@ -28,6 +31,7 @@
   --cor-oito: #c2eaf7;
   --contraste: #f0f0f0;
   --cor-footer: #080022;
+  --cor-link: #c5abf7;
   --background-color: #1a033d;
   --transparente-leve: #b5b5b5ad;
   --sombra-leve: #633c992d;
@@ -47,7 +51,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--background-color);
-  min-height: 100dvh;
+  min-height: 80dvh;
 }
 
 .theme-switch {

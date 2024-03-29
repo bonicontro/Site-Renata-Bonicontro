@@ -65,118 +65,131 @@ const ContactPage = () => {
     <div className="main container-principal">
       <h1>{page.title.rendered}</h1>
       <div className="informacoes-de-contato">
-        <div className="contact-info">
-          <div className="phone">
-            <p>
-              Telefone:{" "}
-              <a
-                href="#"
-                id="contatoRodape"
-                className="contato-whatsapp"
-                onClick={() =>
-                  window.open(
-                    `https://api.whatsapp.com/send?phone=+55${page?.acf.telefone.replace(
-                      /\D/g,
-                      ""
-                    )}&text=Olá!, Gostaria de saber sobre`,
-                    "_blank"
-                  )
-                }
-              >
-                {" "}
-                <FontAwesomeIcon icon={faWhatsapp} /> {page.acf.telefone}
-              </a>
-            </p>
-          </div>
-          <div className="email">
-            <p>
-              Email:{" "}
-              <a href={`mailto:${page.acf.email_de_contato}`}>
-                {page.acf.email_de_contato}
-              </a>
-            </p>
-          </div>
-        </div>
-        <div className="contact-form">
-          <h2>Envie uma mensagem</h2>
-          {formStatus === "Success" ? (
-            <div className="success-message">
-              Obrigada! retornarei o assim que possível.
+        <div className="coluna-info">
+          <div className="contact-info">
+            <div className="phone">
+              <p>
+                Telefone:{" "}
+                <a
+                  href="#"
+                  id="contatoRodape"
+                  className="contato-whatsapp"
+                  onClick={() =>
+                    window.open(
+                      `https://api.whatsapp.com/send?phone=+55${page?.acf.telefone.replace(
+                        /\D/g,
+                        ""
+                      )}&text=Olá!, Gostaria de saber sobre`,
+                      "_blank"
+                    )
+                  }
+                >
+                  {" "}
+                  <FontAwesomeIcon icon={faWhatsapp} /> {page.acf.telefone}
+                </a>
+              </p>
             </div>
-          ) : formStatus === "Error" ? (
-            <div className="error-message">
-              Oops! algo deu errado, por favor, tente novamente mais tarde!.
+            <div className="email">
+              <p>
+                Email:{" "}
+                <a href={`mailto:${page.acf.email_de_contato}`}>
+                  {page.acf.email_de_contato}
+                </a>
+              </p>
             </div>
-          ) : null}
-          <form onSubmit={handleFormSubmit}>
-            <label>
-              Nome
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleFormChange}
-              />
-            </label>
-            <label>
-              Email
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleFormChange}
-              />
-            </label>
-            <label>
-              Menssagem
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleFormChange}
-              />
-            </label>
-            <button type="submit">Enviar mensagem</button>
-          </form>
-        </div>
-        <div className="social-media">
-          <h3>Imagens do inconsciente</h3>
-          <FontAwesomeIcon icon={faMoon} />
-          <a
-            href={page.acf.facebook_tarot}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faFacebookSquare} />
-          </a>
-          <a
-            href={page.acf.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href={page.acf.tiktok} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faTiktok} />
-          </a>
+            <div className="social-media">
+              <h3>Imagens do inconsciente</h3>
 
-          <h3>Psicologia</h3>
-          <FontAwesomeIcon icon={faBrain} />
-          <a
-            href={page.acf.instagram_psicologa}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            href={page.acf.facebook_pessoal}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faFacebookSquare} />
-          </a>
+              <div className="icones-redes">
+                <a
+                  href={page.acf.facebook_tarot}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faFacebookSquare} />
+                </a>
+                <a
+                  href={page.acf.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faInstagram} />
+                </a>
+                <a
+                  href={page.acf.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faTiktok} />
+                </a>
+              </div>
+              <h3>Psicologia</h3>
+              <div className="icones-redes">
+                <a
+                  href={page.acf.instagram_psicologa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faInstagram} />
+                </a>
+                <a
+                  href={page.acf.facebook_pessoal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faFacebookSquare} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-form">
+            <h2>Envie uma mensagem</h2>
+            {formStatus === "Success" ? (
+              <div className="success-message">
+                Obrigada! retornarei o assim que possível.
+              </div>
+            ) : formStatus === "Error" ? (
+              <div className="error-message">
+                Oops! algo deu errado, por favor, tente novamente mais tarde!.
+              </div>
+            ) : null}
+            <form onSubmit={handleFormSubmit}>
+              <label>
+                Nome
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleFormChange}
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleFormChange}
+                />
+              </label>
+              <label>
+                Menssagem
+                <textarea
+                  name="message"
+                  required
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  rows={5}
+                />
+              </label>
+              <button type="submit">Enviar mensagem</button>
+            </form>
+          </div>
         </div>
-      </div>
+      </div>{" "}
     </div>
   );
 };

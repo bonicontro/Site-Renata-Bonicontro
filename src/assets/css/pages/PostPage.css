@@ -1,0 +1,14 @@
+.container-principal h1 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  margin: 24px 0;
+  color: var(--cor-quinta);
+}
+.post {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-quinta);
+  padding: 24px;
+  max-width: 780px;
+  margin: 12px auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px -6px var(--sombra-leve);
+}

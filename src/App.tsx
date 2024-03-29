@@ -13,7 +13,7 @@ import "./App.css";
 
 function App() {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
+    () => localStorage.getItem("theme") || "dark"
   );
 
   function handleThemeChange(e: any) {
@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <Router basename="/renata/teste">
+    <Router basename="/teste">
       <div className={`App ${theme}`} id="tema" data-tema={theme}>
         <Menu theme={theme} handleThemeChange={handleThemeChange} />
         <div className="content fade">
